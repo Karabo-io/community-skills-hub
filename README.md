@@ -79,6 +79,7 @@ A serverless web platform that:
 ##  Skills 
 
 |re/Start Module |	How It's Applied in This Project|
+|----------------|----------------------------------|
 |Linux	|CLI navigation, file permissions, bash scripting for deployment scripts|
 |Python |	Lambda functions for business logic, data processing, API handlers|
 |Networking	|VPC concepts, API Gateway, CloudFront, CORS configuration|
