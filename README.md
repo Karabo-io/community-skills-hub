@@ -3,7 +3,9 @@ AWS re/Start Project
 
 > A serverless platform connection unemployed South African youth with skills development resources and local job opportunities
 
-<img width="1362" height="1030" alt="aws" src="https://github.com/user-attachments/assets/ce4e6aba-6e41-4c82-a6d4-31195033113e" />
+
+<img width="1361" height="1030" alt="aws drawio" src="https://github.com/user-attachments/assets/c939c7a8-3c09-4e14-bf33-471c5ecd4729" />
+
 
 
 ## The Problem
