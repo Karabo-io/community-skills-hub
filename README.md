@@ -12,24 +12,7 @@ AWS re/Start Project
 - [Problem Statement](#-problem-statement)
 - [Solution](#-solution)
 - [Architecture](#-architecture)
-- [AWS Services Used](#-aws-services-used)
-- [Key Features](#-key-features)
-- [Data Model](#-data-model)
-- [API Endpoints](#-api-endpoints)
-- [AWS re/Start Skills Demonstrated](#-aws-restart-skills-demonstrated)
-- [Screenshots & Demo](#-screenshots--demo)
-- [Repository Structure](#-repository-structure)
-- [Deployment Guide](#-deployment-guide)
-- [Testing](#-testing)
 - [Security](#-security)
-- [Monitoring & Logging](#-monitoring--logging)
-- [Cost Optimization](#-cost-optimization)
-- [Challenges & Lessons Learned](#-challenges--lessons-learned)
-- [Future Roadmap](#-future-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Acknowledgements](#-acknowledgements)
-- [Contact](#-contact)
 
 
 ## Project Overview
@@ -73,24 +56,6 @@ A serverless web platform that:
   ## Architecture
   Built entirely on AWS serverless services:
 
-  ```mermaid
-graph TD
-    A[User - Mobile/Desktop] --> B[CloudFront CDN]
-    B --> C[S3 Bucket - Static Frontend]
-    C --> D[API Gateway - REST API]
-    D --> E[Lambda - Jobs Service]
-    D --> F[Lambda - Skills Matcher]
-    D --> G[Lambda - User Service]
-    E --> H[DynamoDB - Jobs Table]
-    F --> I[DynamoDB - Skills Table]
-    G --> J[DynamoDB - Users Table]
-    E --> K[CloudWatch Logs & Metrics]
-    F --> K
-    G --> K
-    D --> L[SNS - Notifications Optional]
-    L --> M[Email/SMS Alerts]
-    
-
 | Layer | Service | Purpose |
 |-------|---------|---------|
 | Frontend | S3 + CloudFront | Static hosting + CDN |
@@ -100,3 +65,25 @@ graph TD
 | Security | IAM | Least-privilege access |
 | Monitoring | CloudWatch | Logs, metrics, alarms |
 
+## Security
+- IAM Least Privilege: Each Lambda function has its own role with minimal permissions.
+- API Gateway Throttling: Rate limiting to prevent abuse.
+- Input Validation: All user inputs validated and sanitized to prevent injection.
+- CORS: Configured to allow only your frontend domain.
+- Encryption:
+    - At rest: DynamoDB encryption enabled (default).
+    - In transit: HTTPS via CloudFront and API Gateway.
+- Secrets Management: API keys stored in AWS Systems Manager Parameter Store (not in code).
+- Authentication: Admin endpoints protected by API key (MVP)
+
+##  Skills 
+
+|re/Start Module |	How It's Applied in This Project|
+|Linux	|CLI navigation, file permissions, bash scripting for deployment scripts|
+|Python |	Lambda functions for business logic, data processing, API handlers|
+|Networking	|VPC concepts, API Gateway, CloudFront, CORS configuration|
+|Security	|IAM roles, least privilege, input validation, encryption at rest/transit|
+|Databases|	DynamoDB table design, partition keys, queries, data modelling|
+|Automation|	Event-driven architecture, serverless patterns, CloudFormation|
+|AWS|	S3, Lambda, DynamoDB, API Gateway, CloudWatch, IAM, SNS|
+|Professional Skills|	Documentation, communication, problem-solving, teamwork|
