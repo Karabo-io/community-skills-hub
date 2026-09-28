@@ -2,12 +2,6 @@
 AWS re/Start Project
 
 <img width="1361" height="1030" alt="aws drawio" src="https://github.com/user-attachments/assets/c939c7a8-3c09-4e14-bf33-471c5ecd4729" />
-[![AWS](https://img.shields.io/badge/AWS-Serverless-FF9900?logo=amazon-aws)](https://aws.amazon.com/)
-[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![AWS re/Start](https://img.shields.io/badge/AWS%20re%2FStart-Graduate-blue)](https://aws.amazon.com/training/restart/)
-
 
 > A serverless platform connection unemployed South African youth with skills development resources and local job opportunities
 
@@ -38,12 +32,39 @@ AWS re/Start Project
 - [Contact](#-contact)
 
 
-## The Problem
+## Project Overview
 
-South Africa's youth unemployment rate reached **51% in Q2 2026**, with skills development and SME integration remaining weak. The cost of living crisis compounds this, households face rising utility, transport, and food costs while digital skills gaps exclude millions from the growing tech economy.
+The **Community Skills & Opportunity Hub** is a cloud-native, serverless web application built on AWS. It addresses the critical youth unemployment crisis in South Africa by providing a centralized platform where young people can:
+
+- Discover local job opportunities
+- Identify skill gaps and find relevant training programmes
+- Access free digital skills resources
+- Track their job applications
+
+This project was developed as a capstone to demonstrate the skills acquired during the **AWS re/Start** programme, including Linux, Python, networking, security, databases, and core AWS services.
+
+
+##  Problem Statement
+
+South Africa faces a deepening socio-economic crisis that disproportionately affects young people:
+
+- **Youth Unemployment:** According to the Quarterly Labour Force Survey (QLFS) Q2 2026, **51% of young South Africans (aged 15–34) were neither working nor able to find work**. The Department of Employment and Labour has described this as "a national emergency demanding an urgent, coordinated response."
+- **Cost of Living:** The 2026 Cost of Living Report highlights that the crisis is "also a water, energy and food crisis." Households face rising interest rates, utility costs, and transport costs, making it even harder for unemployed youth to afford data, transport to interviews, or training fees.
+- **Skills Development Gap:** Economic growth was only 1.1% in 2026, and findings show that "skills development and SME integration remains weak." Many young people lack the digital skills demanded by the modern economy.
+- **Wealth Inequality:** The top 1% by wealth in South Africa hold **55% of the wealth**, while the bottom 50% have negative net wealth. This structural inequality limits access to opportunities for the majority.
+
+**The result:** A generation of talented young people is locked out of the economy, not due to lack of potential, but due to lack of access to information, networks, and skills.
 
 ## The Solution
+The Community Skills & Opportunity Hub provides a **free, accessible, mobile-friendly platform** that bridges the gap between unemployed youth and opportunity. It leverages serverless AWS services to remain low-cost, highly scalable, and resilient, even under load.
+
+**Core value proposition:**
+- **For youth:** One place to find jobs, learn what skills are needed, and access free training.
+- **For communities:** A tool that can be deployed by local NGOs, municipalities, or TVET colleges.
+- **For employers:** A pipeline of motivated, upskilled candidates.
+  
 A serverless web platform that:
+
 - Lists local job opportunities filtered by location and skill
 - Matches users to relevant learnerships and free training
 - Curates digital skills resources (AWS Educate, Tangible Africa, TVET)
@@ -51,6 +72,24 @@ A serverless web platform that:
 
   ## Architecture
   Built entirely on AWS serverless services:
+
+  ```mermaid
+graph TD
+    A[User - Mobile/Desktop] --> B[CloudFront CDN]
+    B --> C[S3 Bucket - Static Frontend]
+    C --> D[API Gateway - REST API]
+    D --> E[Lambda - Jobs Service]
+    D --> F[Lambda - Skills Matcher]
+    D --> G[Lambda - User Service]
+    E --> H[DynamoDB - Jobs Table]
+    F --> I[DynamoDB - Skills Table]
+    G --> J[DynamoDB - Users Table]
+    E --> K[CloudWatch Logs & Metrics]
+    F --> K
+    G --> K
+    D --> L[SNS - Notifications Optional]
+    L --> M[Email/SMS Alerts]
+    
 
 | Layer | Service | Purpose |
 |-------|---------|---------|
